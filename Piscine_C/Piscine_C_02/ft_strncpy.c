@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 12:27:41 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/09 00:25:20 by lalfred          ###   ########.fr       */
+/*   Created: 2022/04/09 00:25:58 by lalfred           #+#    #+#             */
+/*   Updated: 2022/04/09 16:28:30 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	int	i;
 
 	i = 0;
-	while (src[i])
+	while (i < n && src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	while (i < n)
+		dest[i] = '\0';
 	return (dest);
 }
 
@@ -36,9 +37,12 @@ int main(void)
     char    *str;
     char    new[13];
     int     n;
+	int		f;
 
     str = "Hello World!";
-    ft_strcpy(new, str);
+	f = 8;
+	printf("original function behavior : %s\n", strncpy(new, str, f));
+    ft_strncpy(new, str, f);
     n = 0;
     while (new[n])
     {
@@ -46,7 +50,6 @@ int main(void)
         n++;
     }
     printf("\n");
-    printf("original function behavior : %s\n", strcpy(new, str));
     return (0);
 }
 */

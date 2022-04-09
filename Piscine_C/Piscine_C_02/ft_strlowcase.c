@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 15:24:58 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/06 15:50:24 by lalfred          ###   ########.fr       */
+/*   Created: 2022/04/09 20:14:41 by lalfred           #+#    #+#             */
+/*   Updated: 2022/04/09 20:17:57 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+char	*ft_strupcase(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
+	{
+		if (str[i] >= 65 && str[i] <= 90)
+			str[i] += 32;
 		i++;
-	return (i);
+	}
+	return (str);
 }
 
-// Check:
+// Check :
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-	char	*str;
+	char	str[] = "jadjkadkajdJIDJIDJSJdai3131";
 
-	str = "Hello World!";
-	printf("%d\n", ft_strlen(str));
+	printf("Before: %s\n", str);
+	printf("After : %s\n", ft_strupcase(str));
 	return (0);
 }
 */
