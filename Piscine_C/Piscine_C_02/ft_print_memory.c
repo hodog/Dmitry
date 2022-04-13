@@ -6,12 +6,11 @@
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:17:15 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/11 12:53:03 by lalfred          ###   ########.fr       */
+/*   Updated: 2022/04/10 18:58:17 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -58,7 +57,6 @@ void	*ft_convert_to_hex(char c)
 				ft_putchar(snd[b]);
 				break ;
 			}
-			i++;
 			b++;
 		}
 		a++;
@@ -74,23 +72,8 @@ void	*ft_print_memory(void *addr, unsigned int size)
 
 	i = 0;
 	addr = a;
-//	ft_putchar_address(address);
-	ft_putchar(';');
-	printf("%c\n", a[i]);
-	while (a[i])
-	{
-		ft_convert_to_hex(a[i]);
-		ft_putchar(' ');
-	}
-	i = 0;
-	while (a[i])
-	{
-		if (a[i] < 32)
-			ft_putchar('.');
-		else
-			ft_putchar(a[i]);
-		i++;
-	}
+	*a = &address;
+	ft_putchar_address(address);
 	return (0);
 }
 
