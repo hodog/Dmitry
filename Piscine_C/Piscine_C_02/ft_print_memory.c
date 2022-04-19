@@ -6,9 +6,12 @@
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:17:15 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/19 14:40:32 by lalfred          ###   ########.fr       */
+/*   Updated: 2022/04/19 14:43:28 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// !!! ATTENTION !!!
+// 	!!! NO Norm !!!
 
 #include <unistd.h>
 
@@ -107,7 +110,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 }
 
 // Check :
-
+/*
 int	main(void)
 {
 	char *str = "Salut les aminches c'est fsdfsdfds fsdfsdf dsf sdf dsf sdf \
@@ -121,5 +124,6 @@ int	main(void)
 
 	// ###   OR  ###
 	
-	ft_print_memory(str, 0); // this needed to check this statemnent : "• If size equals to 0, nothing should be displayed.""
+	ft_print_memory(str, 0); // this line needed to check this statemnent : "• If size equals to 0, nothing should be displayed.""
 }
+*/
