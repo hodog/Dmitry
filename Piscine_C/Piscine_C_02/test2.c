@@ -45,7 +45,7 @@ void *ft_print_memory(void *addr, unsigned int size)
 	for (int i = 0; i < size; i += 16)
 	{
 		n = i;
-		for (int j = 9; j >= 0; j--)
+		for (int j = 7; j >= 0; j--)
 		{
 			v = n % 16;
 			buf[j] = v < 10 ? v + '0' : v - 10 + 'a';

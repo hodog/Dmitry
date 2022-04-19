@@ -6,7 +6,7 @@
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:17:15 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/17 21:41:47 by lalfred          ###   ########.fr       */
+/*   Updated: 2022/04/19 14:40:32 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	hex(char s)
 	{
 		c = s;
 		if (s < 10)
-			s += '0';
+			c = s + '0';
 		else
-			s -= 10 + 'a';
+			c = s - 10 + 'a';
 		write(1, &c, 1);
 	}
 	else
@@ -51,46 +51,56 @@ void	hex(char s)
 void	print(char c)
 {
 	if (c < 16)
-		fputstr("0");
+		ft_putstr("0");
 	hex(c);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	char	buf[9];
+	char	buf[18];
 	int		n;
 	int		v;
 	int		i;
+	int		j;
 	char	c;
 
-	buf[8] = 0;
+	buf[17] = 0;
 	i = 0;
 	while (i < size)
 	{
 		n = i;
-		for (int j = 9; j >= 0; j--)
+		j = 16;
+		while (j >= 0)
 		{
 			v = n % 16;
-			buf[j] = v < 10 ? v + '0' : v - 10 + 'a';
+			if (v < 10)
+				buf[j] = v + '0';
+			else
+				buf[j] = v - 10 + 'a';
 			n /= 16;
+			j--;
 		}
-		fputstr(buf);
-		fputstr(": ");
-		for (int j = 0; j < 16; j += 2)
+		ft_putstr(buf);
+		ft_putstr(": ");
+		j = 0;
+		while (j < 16)
 		{
 			print(((char *)addr + i)[j]);
 			print(((char *)addr + i)[j + 1]);
-			fputstr(" ");
+			ft_putstr(" ");
+			j += 2;
 		}
-		for (int j = 0; j < 16; j++)
+		j = 0;
+		while (j < 16)
 		{
 			c = ((char *)addr + i)[j];
 			if (c > 31 && c < 127)
 				write(1, &c, 1);
 			else
 				write(1, ".", 1);
+			j++;
 		}
-		fputstr("\n");
+		ft_putstr("\n");
 		i += 16;
 	}
 	return addr;
