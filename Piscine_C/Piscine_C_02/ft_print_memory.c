@@ -6,7 +6,7 @@
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:17:15 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/19 14:43:28 by lalfred          ###   ########.fr       */
+/*   Updated: 2022/04/19 21:46:44 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		ft_putstr("\n");
 		i += 16;
 	}
-	return addr;
+	return (addr);
 }
 
 // Check :
