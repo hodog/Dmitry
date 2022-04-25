@@ -6,11 +6,9 @@
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 17:08:19 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/21 19:50:25 by lalfred          ###   ########.fr       */
+/*   Updated: 2022/04/23 11:27:25 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -30,12 +28,10 @@ char	*ft_strncat_rev(char *dest, char *src, unsigned int nb)
 	while (src[nb])
 	{
 		dest[n] = src[nb];
-        printf("dest - %c\n", dest[n]);
 		nb++;
 		n++;
 	}
 	dest[n] = 0;
-    printf("dest - %s\n", dest);
 	return (dest);
 }
 
@@ -48,7 +44,7 @@ int ft_comparison(char *str, char *to_find, unsigned int n)
     {
         n++;
         j++;
-        if (!to_find[j])
+        if (str[n] && !to_find[j])
             return(1);
     }
     return (0);
@@ -63,17 +59,15 @@ char    *ft_strstr(char *str, char *to_find)
 
     i = 0;
     flag = 0;
+	haystack = str;
     if (to_find[0] == '\0')
         return (str);
     while (str[i])
     {
         flag = ft_comparison(str, to_find, i);
-        printf("flag = %d\n", flag);
         if (flag == 1)
             {
                 ft_strncat_rev(haystack, str, i);
-                printf("haystack - %s\n", haystack);
-                                printf("str - %s\n", str);
                 return(haystack);
             }
         i++;
@@ -82,17 +76,19 @@ char    *ft_strstr(char *str, char *to_find)
 }
 
 // Check :
-
+/*
 #include <string.h>
+#include <stdio.h>
 
 int main(void)
 {
     char    haystack[] = "Hello World!";
-    char    needle[] = "l";
+    char    needle[] = "o";
 
 
-//    printf("%s\n", strstr(haystack, needle));
+    printf("%s\n", strstr(haystack, needle));
     printf("%s\n", ft_strstr(haystack, needle));
     
     return (0);
 }
+*/
