@@ -6,7 +6,7 @@
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 11:27:06 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/24 23:14:05 by lalfred          ###   ########.fr       */
+/*   Updated: 2022/04/25 15:35:42 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	if (size == 0)
 		return (ft_strlen(src));
 	n = ft_strlen(dest);
-	while (i < size - ft_strlen(dest) - 1)
+	while (i < size - ft_strlen(dest) - 1 && size < n)
 	{
 		dest[n] = src[i];
 		i++;
@@ -61,7 +61,7 @@ int	main(void)
 	printf("s3 : %s	s4 : %s : %d\n", s3, s4, nb);
 	printf("		========****************************========\n");
 	strlcat(s1, s2, nb);
-	printf("srtlcat : %lu\n", strlcat(s1, s2, nb));
+	printf("srtlcat : %u\n", strlcat(s1, s2, nb));
 	ft_strlcat(s3, s4, nb);
 	printf("ft_srtlcat : %d\n", ft_strlcat(s3, s4, nb));
 	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
@@ -70,7 +70,7 @@ int	main(void)
 	strlcat(s1, s2, nb);
 	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
 	printf("s3 : %s	s4 : %s : %d\n", s3, s4, nb);
-	printf("srtlcat : %lu\n", strlcat(s1, s2, nb));
+	printf("srtlcat : %u\n", strlcat(s1, s2, nb));
 	ft_strlcat(s3, s4, nb);
 	printf("ft_srtlcat : %d\n", ft_strlcat(s3, s4, nb));
 	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
