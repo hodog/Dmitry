@@ -1,21 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 15:26:09 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/27 16:18:07 by lalfred          ###   ########.fr       */
+/*   Created: 2022/04/27 15:31:26 by lalfred           #+#    #+#             */
+/*   Updated: 2022/04/27 17:24:54 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-
-void    ft_putchar(char c)
-{
-    write(1, &c, 1);
-}
 
 int ft_strlen(char *str)
 {
@@ -25,6 +18,20 @@ int ft_strlen(char *str)
     while (str[i])
         i++;
     return (i);
+}
+
+int index_search(char c, char *base)
+{
+    int i;
+
+    i = 0;
+    while (base[i])
+    {
+        if (c == base[i])
+            return (i);
+        i++;
+    }
+    return (0);
 }
 
 int	ft_str_is_printable(char *str)
@@ -41,34 +48,18 @@ int	ft_str_is_printable(char *str)
 	return (1);
 }
 
-void    ft_putnbr_convert(long int nb, char *base)
+int checked_char(char c, char *base)
 {
-    unsigned int    i;
-    long int        tmp;
-    char            c;
-    unsigned int    n;
+    int i;
 
-    n = ft_strlen(base);
-    if (nb < 0)
+    i = 0;
+    while (base[i])
     {
-        ft_putchar('-');
-        nb = -nb;
-    }
-    i = 1;
-    tmp = nb;
-    while (tmp > n - 1)
-    {
-        tmp /= n;
-        i *= n;
-    }
-    while (i > 0)
-    {
-        tmp = nb / i;
-        ft_putchar(base[tmp]);
-        nb -= tmp * i;
-        i /= n;
-    }
-    ft_putchar('\n');
+        if (c == base[i])
+            return (1);
+        i++;
+    }    
+    return (0);
 }
 
 int ft_check_base(char *base)
@@ -96,45 +87,53 @@ int ft_check_base(char *base)
     return (0);
 }
 
-void    ft_putnbr_base(int nbr, char *base)
+int ft_atoi(char *str, char *base)
+{
+    int i;
+    int flag;
+    int num;
+    
+    
+    i = 0;
+    flag = 1;
+    num = 0;
+    while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n' || \
+     str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+        i++;
+    while (str[i] == '-' || str[i] == '+')
+    {
+        if (str[i] == '-')
+            flag *= -1;
+        i++;
+    }
+    while (checked_char(str[i], base) == 1)
+    {
+        num = num + index_search(str[i], base);
+        if (checked_char(str[i + 1], base) == 1)
+            num *= ft_strlen(base);
+        i++;
+    }
+    return (num * flag);
+}
+
+int ft_atoi_base(char *str, char *base)
 {
     if (ft_check_base(base) == 0)
     {
-        ft_putnbr_convert(nbr, base);
+        ft_atoi(str, base);
     }
 }
 
 // Check :
-
+/*
 #include <stdio.h>
 
 int main (void)
 {
+    char    str[] = " -+--a0000000000000000000000000000000-fn";
     char base[] = "0a";
-    int nb = -2147483648;
     
-    printf("------\n");
-    printf("%d\n", nb);
-    ft_putnbr_base(nb, base);
-    printf("------\n");
-    int nb1 = 34004234;
-    printf("%d\n", nb1);
-    ft_putnbr_base(nb1, base);
-    printf("------\n");
-    int nb2 = -1;
-    printf("%d\n", nb2);
-    ft_putnbr_base(nb2, base);
-    printf("------\n");
-    int nb3 = -2147483648;
-    printf("%d\n", nb3);
-    ft_putnbr_base(nb3, base);
-    printf("------\n");
-    int nb4 = 2147483647;
-    printf("%d\n", nb4);
-    ft_putnbr_base(nb4, base);
-    printf("------\n");
-    int nb5 = 0;
-    printf("%d\n", nb5);
-    ft_putnbr_base(nb5, base);
-    printf("------\n");
+    printf("%d\n", ft_atoi_base(str, base));
+    return (0);
 }
+*/
