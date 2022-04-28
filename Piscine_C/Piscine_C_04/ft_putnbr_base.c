@@ -6,7 +6,7 @@
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 15:26:09 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/27 16:18:07 by lalfred          ###   ########.fr       */
+/*   Updated: 2022/04/28 14:05:21 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void    ft_putnbr_base(int nbr, char *base)
 }
 
 // Check :
-
+/*
 #include <stdio.h>
 
 int main (void)
@@ -138,3 +138,4 @@ int main (void)
     ft_putnbr_base(nb5, base);
     printf("------\n");
 }
+*/
