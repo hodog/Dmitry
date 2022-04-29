@@ -6,7 +6,7 @@
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 11:27:06 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/26 23:28:05 by lalfred          ###   ########.fr       */
+/*   Updated: 2022/04/28 22:24:55 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 int	main(void)
 {
 	char	*s1;
-	char	s2[] = "10101010101";
+	char	s2[] = "10101";
 	char	*s3;
-	char	s4[] = "10101010101";
+	char	s4[] = "10101";
 	int		nb = 100;
 	
 	s1 = (char *)malloc(sizeof(*s1) * (ft_strlen(s2) + 1));
@@ -66,8 +66,6 @@ int	main(void)
 	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
 	printf("s3 : %s	s4 : %s : %d\n", s3, s4, nb);
 	printf("		========****************************========\n");
-	strlcat(s1, s2, nb);
-	ft_strlcat(s3, s4, nb);
 	printf("strlcat : %lu\n", strlcat(s1, s2, nb));
 	printf("ft_strlcat : %d\n", ft_strlcat(s3, s4, nb));
 	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
@@ -75,8 +73,20 @@ int	main(void)
 	printf("		========****************************========\n");
 	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
 	printf("s3 : %s	s4 : %s : %d\n", s3, s4, nb);
-	strlcat(s1, s2, nb);
-	ft_strlcat(s3, s4, nb);
+	printf("strlcat : %lu\n", strlcat(s1, s2, nb));
+	printf("ft_strlcat : %d\n", ft_strlcat(s3, s4, nb));
+	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
+	printf("s3 : %s	s4 : %s : %d\n", s3, s4, nb);
+	printf("		========****************************========\n");
+	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
+	printf("s3 : %s	s4 : %s : %d\n", s3, s4, nb);
+	printf("strlcat : %lu\n", strlcat(s1, s2, nb));
+	printf("ft_strlcat : %d\n", ft_strlcat(s3, s4, nb));
+	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
+	printf("s3 : %s	s4 : %s : %d\n", s3, s4, nb);
+	printf("		========****************************========\n");
+	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
+	printf("s3 : %s	s4 : %s : %d\n", s3, s4, nb);
 	printf("strlcat : %lu\n", strlcat(s1, s2, nb));
 	printf("ft_strlcat : %d\n", ft_strlcat(s3, s4, nb));
 	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
