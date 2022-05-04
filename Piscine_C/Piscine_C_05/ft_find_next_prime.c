@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 17:28:34 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/30 10:11:47 by lalfred          ###   ########.fr       */
+/*   Created: 2022/04/30 23:18:43 by lalfred           #+#    #+#             */
+/*   Updated: 2022/04/30 23:30:27 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+int	ft_find_next_prime(int nb)
 {
-	if (power < 0)
-        return (0);
-    else if (power == 0)
-        return (1);
-	else
-		return (nb * ft_recursive_power(nb, power - 1));
+	int	i;
+
+	if (nb <= 2)
+		return (2);
+	i = 2;
+	while (nb % i != 0 || nb != i)
+	{
+		if (nb % i == 0 && nb != i)
+		{
+			nb++;
+			i = 2;
+		}
+		i++;
+	}
+	return (nb);
 }
 
 // Check :
 /*
 #include <stdio.h>
 
-int main (void)
+int	main(void)
 {
-    int nb = 1;
-    int power = 0;
+	int	nb;
 
-    printf("%d\n", ft_recursive_power(nb, power));
-    return (0);
+	nb = -1;
+	printf("%d\n", ft_find_next_prime(nb));
+	return (0);
 }
 */

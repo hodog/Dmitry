@@ -6,7 +6,7 @@
 /*   By: lalfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 11:27:06 by lalfred           #+#    #+#             */
-/*   Updated: 2022/04/28 22:24:55 by lalfred          ###   ########.fr       */
+/*   Updated: 2022/04/30 09:56:59 by lalfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 }
 
 // Check :
-
+/*
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -57,10 +57,10 @@ int	main(void)
 	char	s2[] = "10101";
 	char	*s3;
 	char	s4[] = "10101";
-	int		nb = 100;
+	int		nb = 21;
 	
 	s1 = (char *)malloc(sizeof(*s1) * (ft_strlen(s2) + 1));
-	s3 = (char *)malloc(sizeof(*s3) * (ft_strlen(s4) + 1));
+	s3 = (char *)malloc(sizeof(*s3) * (ft_strlen(s4) + 100000));
 
 	printf("========							========\n");
 	printf("s1 : %s	s2 : %s : %d\n", s1, s2, nb);
@@ -93,3 +93,4 @@ int	main(void)
 	printf("s3 : %s	s4 : %s : %d\n", s3, s4, nb);
 	printf("========							========\n");
 }
+*/
